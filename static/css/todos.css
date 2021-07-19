@@ -2,3 +2,7 @@ a {
 	text-decoration: none;
 	color: #000;
 }
+
+#complete li { 
+	text-decoration: line-through;
+}

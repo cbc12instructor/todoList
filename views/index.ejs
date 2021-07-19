@@ -13,48 +13,12 @@
 <body id="todoListApp">
 	<h1>My List</h1>
 
+	<form action="/" method="post"><input type="text" id="todo" name="todo" size="30" autocomplete=""></form>
 	<ul id="incomplete">
-
-		<!-- LOOP through database -->
-		<% 
-			if ( todoList.length ) { 
-				for ( let i = 0; i < todoList.length; i++ ) {
-					if ( todoList[i].complete ) {
-						continue;
-					}
-		%>
-		<li id="todo-<%= todoList[i].id %>">
-			<a href="/todo/<%= todoList[i].id %>" title="Mark this item as complete!"><%= todoList[i].name %></a>
-		</li>
-		<% 
-				}
-			} 
-		%>
-		<li><form action="/" method="post"><input type="text" id="todo" name="todo" size="30"></form></li>
 	</ul>
 
 	<h3>Completed</h3>
 	<ul id="complete">
-		<!-- LOOP through database -->
-		<% 
-			if ( todoList.length ) { 
-				for ( let i = 0; i < todoList.length; i++ ) {
-					if ( todoList[i].complete == 0 ) {
-						continue;
-					}
-		%>
-		<li id="todo-<%= todoList[i].id %>">
-			<a href="/delete/<%= todoList[i].id %>">
-				<img src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png" style="height:14px;"/>
-			</a>	
-			<strike>
-				<a href="/todo/<%= todoList[i].id %>/markIncomplete" title="Mark this item as incomplete!"><%= todoList[i].name %></a>
-			</strike>
-		</li>
-		<% 
-				}
-			} 
-		%>
 	</ul>
 </body>
 </html>
